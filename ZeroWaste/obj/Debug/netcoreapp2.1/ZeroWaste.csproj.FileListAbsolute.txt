@@ -94,3 +94,8 @@ C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Ra
 C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Tipos\Details.cshtml.g.cs
 C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Tipos\Edit.cshtml.g.cs
 C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Tipos\Index.cshtml.g.cs
+C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Voluntarios\Create.cshtml.g.cs
+C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Voluntarios\Delete.cshtml.g.cs
+C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Voluntarios\Details.cshtml.g.cs
+C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Voluntarios\Edit.cshtml.g.cs
+C:\Users\rober\Desktop\Nova pasta\ZeroWaste\ZeroWaste\obj\Debug\netcoreapp2.1\Razor\Views\Voluntarios\Index.cshtml.g.cs
