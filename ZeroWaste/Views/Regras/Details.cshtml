@@ -1,0 +1,48 @@
+﻿@model ZeroWaste.Models.Regras
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Regras</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rendimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rendimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Agregado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Agregado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedidos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pedidos)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Alimentos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alimentos)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RegrasID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

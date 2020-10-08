@@ -1,0 +1,59 @@
+﻿@model ZeroWaste.Models.PedidoSupermercado
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>PedidoSupermercado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Quantidade" class="control-label"></label>
+                <input asp-for="Quantidade" class="form-control" />
+                <span asp-validation-for="Quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoEntrega" class="control-label"></label>
+                <input asp-for="EstadoEntrega" class="form-control" />
+                <span asp-validation-for="EstadoEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataEntrega" class="control-label"></label>
+                <input asp-for="DataEntrega" class="form-control" />
+                <span asp-validation-for="DataEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDFamilias" class="control-label"></label>
+                <select asp-for="IDFamilias" class ="form-control" asp-items="ViewBag.IDFamilias"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDInstituicoes" class="control-label"></label>
+                <select asp-for="IDInstituicoes" class ="form-control" asp-items="ViewBag.IDInstituicoes"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDProdutosSupermercado" class="control-label"></label>
+                <select asp-for="IDProdutosSupermercado" class ="form-control" asp-items="ViewBag.IDProdutosSupermercado"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDVoluntarios" class="control-label"></label>
+                <select asp-for="IDVoluntarios" class ="form-control" asp-items="ViewBag.IDVoluntarios"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

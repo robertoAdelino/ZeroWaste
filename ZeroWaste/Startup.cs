@@ -19,7 +19,7 @@ namespace ZeroWaste
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)    
         {
             Configuration = configuration;
         }
@@ -39,6 +39,7 @@ namespace ZeroWaste
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -74,6 +75,8 @@ namespace ZeroWaste
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+           // SeedData.Populate(app.ApplicationServices);
         }
     }
 }

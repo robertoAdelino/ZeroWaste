@@ -1,0 +1,60 @@
+﻿@model ZeroWaste.Models.PedidoRestaurante
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PedidoRestaurante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoEntrega)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstadoEntrega)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEntrega)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataEntrega)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Familias)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Familias.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Instituicoes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Instituicoes.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefeicoesRestaurante)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefeicoesRestaurante.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Voluntarios)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Voluntarios.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IDPedidoRestaurante">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
