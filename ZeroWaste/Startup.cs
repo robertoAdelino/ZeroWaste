@@ -11,7 +11,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ZeroWaste.Data;
 using Microsoft.Extensions.Configuration;
+using ZeroWaste.Models;
 using Microsoft.Extensions.DependencyInjection;
+using SeedData = ZeroWaste.Data.SeedData;
 
 namespace ZeroWaste
 {
@@ -41,6 +43,7 @@ namespace ZeroWaste
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             services.AddDbContext<ZeroDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ZeroDbContext")));
         }
