@@ -55,13 +55,44 @@ namespace ZeroWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IDTipo,Nome")] Tipo tipo)
         {
+            var nome = tipo.Nome;
+
+            // Validar Tipo
+            if (tiporepetidoCriar(nome) == true)
+            {
+                //Mensagem de erro se o tipo for inválido
+                ModelState.AddModelError("Nome", "Este Tipo já existe");
+            }
+
             if (ModelState.IsValid)
             {
-                _context.Add(tipo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (!tiporepetidoCriar(nome))
+                {
+                    _context.Add(tipo);
+
+                    await _context.SaveChangesAsync();
+                    TempData["notice"] = "Registo inserido com sucesso!";
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View(tipo);
+        }
+
+        private bool tiporepetidoCriar(string nome)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com o mesmo email
+            var tipos = from e in _context.Tipo
+                                where e.Nome.Contains(nome)
+                                select e;
+
+            if (!tipos.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
         }
 
         // GET: Tipos/Edit/5
@@ -87,17 +118,31 @@ namespace ZeroWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IDTipo,Nome")] Tipo tipo)
         {
+
+            var nome = tipo.Nome;
+            var idTipo = tipo.IDTipo;
+
             if (id != tipo.IDTipo)
             {
                 return NotFound();
+            }
+            //Validar tipo           
+            if (tiporepetidoEditar(nome, idTipo) == true)
+            {
+                //Mensagem de erro se o tipo for repetido
+                ModelState.AddModelError("Nome", "Este Tipo já existe");
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(tipo);
-                    await _context.SaveChangesAsync();
+                    if (!tiporepetidoEditar(nome, idTipo) )
+                    {
+                        _context.Update(tipo);
+                        await _context.SaveChangesAsync();
+                        TempData["successEdit"] = "Registo alterado com sucesso";
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -113,6 +158,22 @@ namespace ZeroWaste.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(tipo);
+        }
+        private bool tiporepetidoEditar(string nome, int idTipo)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com o mesmo email
+            var tipos = from f in _context.Tipo
+                                where f.Nome.Contains(nome) && f.IDTipo != idTipo
+                                select f;
+
+            if (!tipos.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
         }
 
         // GET: Tipos/Delete/5
