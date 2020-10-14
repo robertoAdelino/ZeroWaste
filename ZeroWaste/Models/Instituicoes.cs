@@ -32,7 +32,7 @@ namespace ZeroWaste.Models
 
 
         [Required(ErrorMessage = "Por favor, introduza o nº de pessoas que a instituição abrange")]
-        public string NumeroPessoasAbrangidas { get; set; }
+        public int NumeroPessoasAbrangidas { get; set; }
 
         public ICollection<PedidoRestaurante> PedidoRestaurante { get; set; }
         public ICollection<PedidoSupermercado> PedidoSupermercado { get; set; }

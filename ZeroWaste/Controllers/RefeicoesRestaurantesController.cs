@@ -23,7 +23,7 @@ namespace ZeroWaste.Controllers
         {
             var zeroDbContext = _context.RefeicoesRestaurante.Include(r => r.Restaurante);
             return View(await zeroDbContext.ToListAsync());
-        }
+        }   
 
         // GET: RefeicoesRestaurantes/Details/5
         public async Task<IActionResult> Details(int? id)

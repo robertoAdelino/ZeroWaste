@@ -37,7 +37,7 @@ namespace ZeroWaste.Models
         public int Rendimento { get; set; }
 
         [Required(ErrorMessage = "Por favor, introduza o nº de pessoas do agregado familiar")]
-        public string NumeroPessoasAgregado { get; set; }
+        public int NumeroPessoasAgregado { get; set; }
 
 
         public ICollection<PedidoRestaurante> PedidoRestaurante { get; set; }
