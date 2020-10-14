@@ -66,7 +66,7 @@ using ZeroWaste.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(129, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45ce596aae9c4d61a0b7b664c88b5b6d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92224f92209149ec93fd2f49aa8c355b", async() => {
                 BeginContext(152, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -236,7 +236,7 @@ using ZeroWaste.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n\r\n\r\n\r\n                ");
             EndContext();
             BeginContext(1849, 170, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "61e63495abfe4514aa16accf8b934b03", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1063fdfd1291452cbc08505d58b26d23", async() => {
                 BeginContext(1912, 103, true);
                 WriteLiteral("\r\n                    <input type=\"button\" value=\"Alterar\" class=\"btn btn-warning\" />\r\n                ");
                 EndContext();
@@ -271,7 +271,7 @@ using ZeroWaste.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(2037, 171, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ab8fcd5d74484e8c81d6aaef4c6b3ac6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35dcf16486154c64a78374cb63dc7b49", async() => {
                 BeginContext(2103, 101, true);
                 WriteLiteral("\r\n                    <input type=\"button\" value=\"Detalhes\" class=\"btn btn-info\" />\r\n                ");
                 EndContext();
@@ -306,7 +306,7 @@ using ZeroWaste.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(2226, 172, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4058f97ac208402586c63b3e213e8673", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7c2adf3bb3b43db9dd60c319927f4d8", async() => {
                 BeginContext(2291, 103, true);
                 WriteLiteral("\r\n                    <input type=\"button\" value=\"Eliminar\" class=\"btn btn-danger\" />\r\n                ");
                 EndContext();
