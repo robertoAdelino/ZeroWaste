@@ -55,9 +55,18 @@
                 @Html.DisplayFor(modelItem => item.NrTotalEntregas)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IDVoluntarios">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IDVoluntarios">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IDVoluntarios">Delete</a>
+
+                <a asp-action="Edit" asp-route-id="@item.IDVoluntarios">
+                    <input type="button" value="Alterar" class="btn btn-warning" />
+                </a>
+                <a asp-action="Details" asp-route-id="@item.IDVoluntarios">
+                    <input type="button" value="Detalhes" class="btn btn-info" />
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.IDVoluntarios">
+                    <input type="button" value="Eliminar" class="btn btn-danger" />
+                </a>
+
+
             </td>
         </tr>
 }

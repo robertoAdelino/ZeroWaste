@@ -1,9 +1,75 @@
-﻿
+﻿@*@model IEnumerable<EscalonamentoHospitalar.Models.Enfermeiro>*@
 @model ListaProdutosSupViewModel
 
 @{ ViewData["Title"] = "Lista de Produtos de Supermercado"; }
 <p></p>
 
+@if (TempData["notice"] != null)
+{<!--Mensagem de sucesso quandi insere -->
+                    <div id="suc_form" class="alert alert-success">
+                        <strong>Sucesso!</strong> O registo foi inserido com sucesso.
+                    </div>}
+
+@if (TempData["deleteEnf"] != null)
+{<!--Mensagem de sucesso quando elimina -->
+                    <div id="suc_form" class="alert alert-success">
+                        <strong>Sucesso!</strong> Eliminado com sucesso.
+                    </div>}
+
+@if (TempData["successEdit"] != null)
+{<!--Mensagem de sucesso quando edita -->
+                    <div id="suc_form" class="alert alert-success">
+                        <strong>Sucesso!</strong> O registo foi alterado com sucesso.
+                    </div>}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    //Passados 5 segundos a mensagem desaparece
+    $(document).ready(function () {
+        $("#suc_form").hide(10000);
+    });
+
+    //Select the appropriate input text to search by name or speciality
+    function searchBy() {
+        var selectOption = document.getElementById("inputGroupSelect01");
+        var selectedValue = selectOption.options[selectOption.selectedIndex].value;
+        if (selectedValue == "Supermercado") {
+            //get name and speciality inputs
+            var form = document.getElementById("inputSupermercado");
+            var form2 = document.getElementById("inputName");
+            //show speciality input
+            if (form.style.display == 'none') {
+                form.style.display = 'inline';
+            }
+            //hide name input
+            if (form2.style.display == 'inline') {
+                form2.style.display = 'none';
+                form2.value = '';
+            }
+        }
+        else //Selected value = NOME
+        {
+            //get name and speciality inputs
+            var form = document.getElementById("inputSupermercado");
+            var form2 = document.getElementById("inputName");
+            //hide speciality input
+            if (form.style.display == 'inline') {
+                form.style.display = 'none';
+                form.value = '';
+            }
+            //show name input
+            if (form2.style.display == 'none') {
+                form2.style.display = 'inline';
+            }
+        }
+    }
+
+    //Delete the speciality input field when the user clicks on name input
+    function deleteSpecialityField() {
+        var form = document.getElementById("inputSupermercado");
+        form.value = '';
+    }</script>
 
 <h2>Lista de Produtos</h2>
 
@@ -60,6 +126,7 @@
         @Html.DisplayFor(modelItem => item.Supermercado.Nome)
     </td>
     <td>
+
         <a asp-action="Edit" asp-route-id="@item.IDProdutosSupermercado">
             <input type="button" value="Alterar" class="btn btn-warning" />
         </a>
@@ -119,10 +186,9 @@
 </p>
 <hr />
 
-@*
+
     <div>
         <a href='@Url.Action("Gestao", "admin")'>
             <input type="button" class="btn btn-default" value="Voltar à página inicial" />
         </a>
     </div>
-*@

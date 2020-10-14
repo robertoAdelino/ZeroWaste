@@ -33,7 +33,29 @@ namespace ZeroWaste.Data
 
         private static void SeedRegras(ZeroDbContext db)
         {
-            
+            if (db.Regras.Any()) return;
+
+            db.Regras.AddRange(
+                new Regras { 
+                 Nome = "Regra para os pedidos de familias",
+                Rendimento =500,    
+                Agregado =5,
+                Pedidos =2,
+                Alimentos =10
+                },
+                new Regras
+                {
+                    Nome = "Regra para os pedidos de instituicoes",
+                    Rendimento = 500,
+                    Agregado = 5,
+                    Pedidos = 2,
+                    Alimentos = 10
+
+                }
+ );
+
+            db.SaveChanges();
+
         }
 
         private static void SeedPedidoSupermercado(ZeroDbContext db)
@@ -72,7 +94,14 @@ namespace ZeroWaste.Data
             Quantidade = 10,
             IDRestaurante = grelhados.IDRestaurante
 
-          }
+          },
+           new RefeicoesRestaurante
+           {
+               Nome = "doces",
+               Quantidade = 10,
+               IDRestaurante = grelhados.IDRestaurante
+
+           }
             );
 
             db.SaveChanges();
@@ -334,7 +363,91 @@ namespace ZeroWaste.Data
                 },
                 new ProdutosSupermercado
                 {
-                    Nome = "Douradinhos",
+                    Nome = "teste",
+                    Quantidade = 10,
+                    IDTipo = Enlatados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+
+              new ProdutosSupermercado
+                {
+                    Nome = "test2",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+
+
+                new ProdutosSupermercado
+                {
+                    Nome = "qualquercoisa",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+                    new ProdutosSupermercado
+                {
+                    Nome = "naosei",
+                    Quantidade = 10,
+                    IDTipo = Enlatados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+                  new ProdutosSupermercado
+                {
+                    Nome = "morango",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+               new ProdutosSupermercado
+                {
+                    Nome = "batata",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+                 new ProdutosSupermercado
+                {
+                    Nome = "alface",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+                new ProdutosSupermercado
+                {
+                    Nome = "carro",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+                  new ProdutosSupermercado
+                {
+                    Nome = "frsad",
+                    Quantidade = 10,
+                    IDTipo = congelados.IDTipo,
+                    IDSupermercado = pingo.IDSupermercado,
+
+
+                },
+                   new ProdutosSupermercado
+                {
+                    Nome = "asfasf",
                     Quantidade = 10,
                     IDTipo = congelados.IDTipo,
                     IDSupermercado = pingo.IDSupermercado,
@@ -393,10 +506,18 @@ namespace ZeroWaste.Data
                  {
                     Nome = "inst1",
                      Telefone = "936571245",
-                     Email = "manuelsantos@guarda.com",
+                     Email = "manueldsantos@guarda.com",
                      Morada = "Rua das neves",
                      NumeroPessoasAbrangidas = 400,
-                 }
+                 },
+                                  new Instituicoes
+                                  {
+                                      Nome = "inst1111",
+                                      Telefone = "936571245",
+                                      Email = "manuelswqntos@guarda.com",
+                                      Morada = "Rua das neves",
+                                      NumeroPessoasAbrangidas = 400,
+                                  }
 
             );
 

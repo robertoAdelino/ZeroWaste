@@ -25,9 +25,17 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IDTipo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IDTipo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IDTipo">Delete</a>
+
+                 <a asp-action="Edit" asp-route-id="@item.IDTipo">
+                    <input type="button" value="Alterar" class="btn btn-warning" />
+                </a>
+                <a asp-action="Details" asp-route-id="@item.IDTipo">
+                    <input type="button" value="Detalhes" class="btn btn-info" />
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.IDTipo">
+                    <input type="button" value="Eliminar" class="btn btn-danger" />
+                </a>
+
             </td>
         </tr>
 }

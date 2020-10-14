@@ -10,8 +10,8 @@ using ZeroWaste.Models;
 namespace ZeroWaste.Migrations
 {
     [DbContext(typeof(ZeroDbContext))]
-    [Migration("20201008203500_dados")]
-    partial class dados
+    [Migration("20201014152904_dados2")]
+    partial class dados2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

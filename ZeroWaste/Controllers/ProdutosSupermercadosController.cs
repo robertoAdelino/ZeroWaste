@@ -48,7 +48,7 @@ namespace ZeroWaste.Controllers
                     .Take(PAGE_SIZE)
                     .ToListAsync();
             }
-            else if (!string.IsNullOrEmpty(supermercado) && string.IsNullOrEmpty(nome)) //Pesquisa por especialidade
+            else if (!string.IsNullOrEmpty(supermercado) && string.IsNullOrEmpty(nome)) //Pesquisa 
             {
                 produtosupermercado = _context.ProdutosSupermercado
                   .Where(e => e.Supermercado.Nome.Contains(supermercado.Trim()));

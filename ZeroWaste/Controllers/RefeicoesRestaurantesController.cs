@@ -47,7 +47,7 @@ namespace ZeroWaste.Controllers
         // GET: RefeicoesRestaurantes/Create
         public IActionResult Create()
         {
-            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Email");
+            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Nome");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace ZeroWaste.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Email", refeicoesRestaurante.IDRestaurante);
+            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Nome", refeicoesRestaurante.IDRestaurante);
             return View(refeicoesRestaurante);
         }
 
@@ -81,7 +81,7 @@ namespace ZeroWaste.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Email", refeicoesRestaurante.IDRestaurante);
+            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Nome", refeicoesRestaurante.IDRestaurante);
             return View(refeicoesRestaurante);
         }
 
@@ -117,7 +117,7 @@ namespace ZeroWaste.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Email", refeicoesRestaurante.IDRestaurante);
+            ViewData["IDRestaurante"] = new SelectList(_context.Restaurante, "IDRestaurante", "Nome", refeicoesRestaurante.IDRestaurante);
             return View(refeicoesRestaurante);
         }
 

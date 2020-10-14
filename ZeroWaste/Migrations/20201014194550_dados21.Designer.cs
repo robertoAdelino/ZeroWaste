@@ -10,8 +10,8 @@ using ZeroWaste.Models;
 namespace ZeroWaste.Migrations
 {
     [DbContext(typeof(ZeroDbContext))]
-    [Migration("20201008134848_initial")]
-    partial class initial
+    [Migration("20201014194550_dados21")]
+    partial class dados21
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,8 +37,7 @@ namespace ZeroWaste.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("NumeroPessoasAgregado")
-                        .IsRequired();
+                    b.Property<int>("NumeroPessoasAgregado");
 
                     b.Property<int>("Rendimento");
 
@@ -66,8 +65,7 @@ namespace ZeroWaste.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("NumeroPessoasAbrangidas")
-                        .IsRequired();
+                    b.Property<int>("NumeroPessoasAbrangidas");
 
                     b.Property<string>("Telefone")
                         .IsRequired();

@@ -55,10 +55,17 @@
                 @Html.DisplayFor(modelItem => item.NumeroPessoasAgregado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IDFamilias">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IDFamilias">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IDFamilias">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IDFamilias">
+                    <input type="button" value="Alterar" class="btn btn-warning" />
+                </a>
+                <a asp-action="Details" asp-route-id="@item.IDFamilias">
+                    <input type="button" value="Detalhes" class="btn btn-info" />
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.IDFamilias">
+                    <input type="button" value="Eliminar" class="btn btn-danger" />
+                </a>
             </td>
+
         </tr>
 }
     </tbody>
