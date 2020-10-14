@@ -55,13 +55,93 @@ namespace ZeroWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IDInstituicoes,Nome,Telefone,Email,Morada,NumeroPessoasAbrangidas")] Instituicoes instituicoes)
         {
-            if (ModelState.IsValid)
+            var email = instituicoes.Email;
+            var morada = instituicoes.Morada;
+            var telefone = instituicoes.Telefone;
+
+
+            //Validar Email           
+            if (emailrepetidoCriar(email) == true)
             {
-                _context.Add(instituicoes);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //Mensagem de erro se o email for inválido
+                ModelState.AddModelError("Email", "Este email já existe");
             }
+
+            //Validar morada           
+            if (moradarepetidaCriar(morada) == true)
+            {
+                //Mensagem de erro se a morada ja existir noutro registo
+                ModelState.AddModelError("Morada", "Esta morada já foi utilizada");
+            }
+            //Validar Contacto
+            if (contactorepetidoCriar(telefone))
+            {
+                //Mensagem de erro se o contacto ja existe
+                ModelState.AddModelError("Telefone", "Contacto já utilizado");
+            }
+
+            if (ModelState.IsValid)
+                if (!emailrepetidoCriar(email) || moradarepetidaCriar(morada) || contactorepetidoCriar(morada))
+                {
+                    _context.Add(instituicoes);
+
+                    await _context.SaveChangesAsync();
+                    TempData["notice"] = "Registo inserido com sucesso!";
+                    return RedirectToAction(nameof(Index));
+                }
             return View(instituicoes);
+        }
+
+        private bool emailrepetidoCriar(string email)
+        {
+            bool IsInvalid = false;
+
+            //Procura na BD se existem instituicoes com o mesmo email
+            var instituicoes = from e in _context.Instituicoes
+                           where e.Email.Contains(email)
+                           select e;
+
+            if (!instituicoes.Count().Equals(0))
+            {
+                IsInvalid = true;
+            }
+
+            return IsInvalid;
+        }
+
+        private bool moradarepetidaCriar(string morada)
+        {
+            bool IsInvalid = false;
+
+            //Procura na BD se existem instituicoes com a mesma morada
+            var instituicoes = from e in _context.Instituicoes
+                           where e.Morada.Contains(morada)
+                           select e;
+
+            if (!instituicoes.Count().Equals(0))
+            {
+                IsInvalid = true;
+            }
+
+            return IsInvalid;
+        }
+
+        private bool contactorepetidoCriar(string contacto)
+        {
+            bool IsInvalid = false;
+
+
+            //Procura na BD se o contacto ja existe
+            var instituicoes = from e in _context.Instituicoes
+                           where e.Telefone.Contains(contacto)
+                           select e;
+
+            if (!instituicoes.Count().Equals(0))
+            {
+                IsInvalid = true;
+            }
+
+            return IsInvalid;
         }
 
         // GET: Instituicoes/Edit/5
@@ -87,17 +167,46 @@ namespace ZeroWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IDInstituicoes,Nome,Telefone,Email,Morada,NumeroPessoasAbrangidas")] Instituicoes instituicoes)
         {
+            var email = instituicoes.Email;
+            var morada = instituicoes.Morada;
+            var telefone = instituicoes.Telefone;
+            var idInstituicao = instituicoes.IDInstituicoes;
+
             if (id != instituicoes.IDInstituicoes)
             {
                 return NotFound();
+            }
+
+            //Validar Email           
+            if (emailrepetidoEditar(email, idInstituicao) == true)
+            {
+                //Mensagem de erro se o email for repetido
+                ModelState.AddModelError("Email", "Este email já existe");
+            }
+
+            //Validar morada           
+            if (moradarepetidaEditar(morada, idInstituicao) == true)
+            {
+                //Mensagem de erro se a morada ja existir noutro registo
+                ModelState.AddModelError("Morada", "Esta morada já foi utilizada");
+            }
+            //Validar Contacto
+            if (contactorepetidoEditar(telefone, idInstituicao))
+            {
+                //Mensagem de erro se o contacto ja existe
+                ModelState.AddModelError("Telefone", "Contacto já utilizado");
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(instituicoes);
-                    await _context.SaveChangesAsync();
+                    if (!emailrepetidoEditar(email, idInstituicao) || moradarepetidaEditar(morada, idInstituicao) || contactorepetidoEditar(morada, idInstituicao))
+                    {
+                        _context.Update(instituicoes);
+                        await _context.SaveChangesAsync();
+                        TempData["successEdit"] = "Registo alterado com sucesso";
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -113,6 +222,55 @@ namespace ZeroWaste.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(instituicoes);
+        }
+
+        private bool emailrepetidoEditar(string email, int idInstituicao)
+        {
+            bool IsInvalid = false;
+
+            //Procura na BD se existem familias com o mesmo email
+            var instituicoes = from f in _context.Instituicoes
+                           where f.Email.Contains(email) && f.IDInstituicoes != idInstituicao
+                           select f;
+
+            if (!instituicoes.Count().Equals(0))
+            {
+                IsInvalid = true;
+            }
+
+            return IsInvalid;
+        }
+        private bool moradarepetidaEditar(string morada, int idInstituicao)
+        {
+            bool IsInvalid = false;
+
+            //Procura na BD se existem familias com a mesma morada
+            var instituicoes = from f in _context.Instituicoes
+                           where f.Morada.Contains(morada) && f.IDInstituicoes != idInstituicao
+                           select f;
+
+            if (!instituicoes.Count().Equals(0))
+            {
+                IsInvalid = true;
+            }
+
+            return IsInvalid;
+        }
+        private bool contactorepetidoEditar(string contacto, int idInstituicao)
+        {
+            bool IsInvalid = false;
+
+            //Procura na BD se existem familias com o mesmo contacto
+            var instituicoes = from f in _context.Instituicoes
+                           where f.Telefone.Contains(contacto) && f.IDInstituicoes != idInstituicao
+                           select f;
+
+            if (!instituicoes.Count().Equals(0))
+            {
+                IsInvalid = true;
+            }
+
+            return IsInvalid;
         }
 
         // GET: Instituicoes/Delete/5

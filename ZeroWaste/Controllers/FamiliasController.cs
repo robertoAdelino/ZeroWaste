@@ -147,10 +147,6 @@ namespace ZeroWaste.Controllers
             return IsInvalid;
         }
 
-        private bool FamiliaExists(int id)
-        {
-            return _context.Familias.Any(e => e.IDFamilias == id);
-        }
 
 
         // GET: Familias/Edit/5

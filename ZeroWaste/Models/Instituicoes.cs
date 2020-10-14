@@ -32,6 +32,7 @@ namespace ZeroWaste.Models
 
 
         [Required(ErrorMessage = "Por favor, introduza o nº de pessoas que a instituição abrange")]
+        [Range(0, int.MaxValue, ErrorMessage = "Por favor introduza um número maior que zero")]
         public int NumeroPessoasAbrangidas { get; set; }
 
         public ICollection<PedidoRestaurante> PedidoRestaurante { get; set; }

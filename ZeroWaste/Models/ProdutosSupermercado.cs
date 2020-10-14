@@ -17,7 +17,7 @@ namespace ZeroWaste.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Por favor introduza a Quantidade.")]
-        [GreaterThanZero(ErrorMessage = "Insira quantidade positiva")]
+        [Range(0, int.MaxValue, ErrorMessage = "Por favor introduza um número maior que zero")]
         public int Quantidade { get; set; }
 
         public int IDSupermercado { get; set; }

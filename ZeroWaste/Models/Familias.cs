@@ -33,10 +33,11 @@ namespace ZeroWaste.Models
         public string Morada { get; set; }
 
         [Required(ErrorMessage = "Por favor introduza o Rendimento.")]
-        [GreaterThanZero(ErrorMessage = "Insira uma quantidade positiva")]
+        [Range(0, int.MaxValue, ErrorMessage = "Por favor introduza um número maior que zero")]
         public int Rendimento { get; set; }
 
         [Required(ErrorMessage = "Por favor, introduza o nº de pessoas do agregado familiar")]
+        [Range(0, int.MaxValue, ErrorMessage = "Por favor introduza um número maior que zero")]
         public int NumeroPessoasAgregado { get; set; }
 
 
