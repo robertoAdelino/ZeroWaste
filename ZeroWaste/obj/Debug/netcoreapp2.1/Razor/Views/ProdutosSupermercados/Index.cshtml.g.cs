@@ -186,12 +186,12 @@ using ZeroWaste.Models;
 ");
             EndContext();
             BeginContext(2787, 731, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f87d832e751415b89de7f0df879fcc4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74363158b0464398a9e4380b6cf9413a", async() => {
                 BeginContext(2812, 115, true);
                 WriteLiteral("\n    Pesquisar por:\n    <select class=\"input-group-prepend\" id=\"inputGroupSelect01\" onchange=\"searchBy()\">\n        ");
                 EndContext();
                 BeginContext(2927, 43, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f5dd3ce4f14428e92fc0594150a5319", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c25b54dcf654d9abe4d8f32932ef64e", async() => {
                     BeginContext(2957, 4, true);
                     WriteLiteral("Nome");
                     EndContext();
@@ -216,7 +216,7 @@ using ZeroWaste.Models;
                 WriteLiteral("\n        ");
                 EndContext();
                 BeginContext(2979, 50, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b2cb8a18c034085a3bf06fdace0b392", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a82fc97ca4fb43c191bc7bb8dfa8f0d4", async() => {
                     BeginContext(3008, 12, true);
                     WriteLiteral("Supermercado");
                     EndContext();
@@ -238,7 +238,7 @@ using ZeroWaste.Models;
                 WriteLiteral("\n    </select>\n    ");
                 EndContext();
                 BeginContext(3048, 168, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "71ef598d46cf413f9cad9a25299ba7a2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4206665cc201408cbec11be0ab98a94c", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -265,7 +265,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\n    ");
                 EndContext();
                 BeginContext(3221, 156, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "58c0c94964ae47fe8c0d352ab06ea8c4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cd56646f057f484aa8a810be157a2214", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -384,7 +384,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\n    </td>\n    <td>\n\n        ");
             EndContext();
             BeginContext(4337, 154, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "512cfbdc9b46442f81e9a1a0a1ea88d4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1dd01f1817254abfaea4cd3ab6f05763", async() => {
                 BeginContext(4402, 85, true);
                 WriteLiteral("\n            <input type=\"button\" value=\"Alterar\" class=\"btn btn-warning\" />\n        ");
                 EndContext();
@@ -419,7 +419,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\n        ");
             EndContext();
             BeginContext(4500, 155, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "45155d9e449549288059482f48496c91", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31c1c344049a42c0946d1235bf743458", async() => {
                 BeginContext(4568, 83, true);
                 WriteLiteral("\n            <input type=\"button\" value=\"Detalhes\" class=\"btn btn-info\" />\n        ");
                 EndContext();
@@ -454,7 +454,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\n        ");
             EndContext();
             BeginContext(4664, 156, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fcb5d5a74b1140f9b844b96ae39cf177", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "96b50b82610a4c2d92a13532a0a9acb1", async() => {
                 BeginContext(4731, 85, true);
                 WriteLiteral("\n            <input type=\"button\" value=\"Eliminar\" class=\"btn btn-danger\" />\n        ");
                 EndContext();
@@ -525,7 +525,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                                 ");
             EndContext();
             BeginContext(5888, 107, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6c09c7271504f96bb01ecd5eca68819", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce3bb5d229e345a689ebf70c1764bc0a", async() => {
                 BeginContext(5910, 81, true);
                 WriteLiteral("<input type=\"hidden\" /><input type=\"button\" class=\"btn btn-default\" value=\"Ok\" />");
                 EndContext();
@@ -565,7 +565,7 @@ WriteAttributeValue("", 6132, Model.Pagination, 6132, 17, false);
             WriteLiteral("\n     page-action=\"Index\"\n     page-classes-enabled=\"true\"\n     page-class=\"btn\"\n     page-class-normal=\"btn-default\"\n     page-class-selected=\"btn-primary\"\n     class=\"btn-group pull-right\">\n</div>\n\n<br />\n<hr />\n<p>\n    ");
             EndContext();
             BeginContext(6372, 119, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eaf0d6f3c6af40ccb41664809ec8f787", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fbf5bad1863440b0bdaeac82c802fc97", async() => {
                 BeginContext(6395, 92, true);
                 WriteLiteral("<input type=\"button\" value=\"Inserir Novo Produto de Supermercado\" class=\"btn btn-primary\" />");
                 EndContext();
