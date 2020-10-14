@@ -97,7 +97,7 @@ namespace ZeroWaste.Controllers
 
         private bool emailrepetidoCriar(string email)
         {
-            bool IsInvalid = false;
+            bool repetido = false;
 
             //Procura na BD se existem familias com o mesmo email
             var familias = from e in _context.Familias
@@ -106,15 +106,15 @@ namespace ZeroWaste.Controllers
 
             if (!familias.Count().Equals(0))
             {
-                IsInvalid = true;
+                repetido = true;
             }
 
-            return IsInvalid;
+            return repetido;
         }
 
         private bool moradarepetidaCriar(string morada)
         {
-            bool IsInvalid = false;
+            bool repetido = false;
 
             //Procura na BD se existem familias com a mesma morada
             var familias = from e in _context.Familias
@@ -123,15 +123,15 @@ namespace ZeroWaste.Controllers
 
             if (!familias.Count().Equals(0))
             {
-                IsInvalid = true;
+                repetido = true;
             }
 
-            return IsInvalid;
+            return repetido;
         }
 
         private bool contactorepetidoCriar(string contacto)
         {
-            bool IsInvalid = false;
+            bool repetido = false;
 
 
             //Procura na BD se o contacto ja existe
@@ -141,10 +141,10 @@ namespace ZeroWaste.Controllers
 
             if (!familias.Count().Equals(0))
             {
-                IsInvalid = true;
+                repetido = true;
             }
 
-            return IsInvalid;
+            return repetido;
         }
 
 
@@ -232,7 +232,7 @@ namespace ZeroWaste.Controllers
 
         private bool emailrepetidoEditar(string email, int idFamilia)
         {
-            bool IsInvalid = false;
+            bool repetido = false;
 
             //Procura na BD se existem familias com o mesmo email
             var familias = from f in _context.Familias
@@ -241,14 +241,14 @@ namespace ZeroWaste.Controllers
 
             if (!familias.Count().Equals(0))
             {
-                IsInvalid = true;
+                repetido = true;
             }
 
-            return IsInvalid;
+            return repetido;
         }
         private bool moradarepetidaEditar(string morada, int idFamilia)
         {
-            bool IsInvalid = false;
+            bool repetido = false;
 
             //Procura na BD se existem familias com a mesma morada
             var familias = from f in _context.Familias
@@ -257,14 +257,14 @@ namespace ZeroWaste.Controllers
 
             if (!familias.Count().Equals(0))
             {
-                IsInvalid = true;
+                repetido = true;
             }
 
-            return IsInvalid;
+            return repetido;
         }
         private bool contactorepetidoEditar(string contacto, int idFamilia)
         {
-            bool IsInvalid = false;
+            bool repetido = false;
 
             //Procura na BD se existem familias com o mesmo contacto
             var familias = from f in _context.Familias
@@ -273,10 +273,10 @@ namespace ZeroWaste.Controllers
 
             if (!familias.Count().Equals(0))
             {
-                IsInvalid = true;
+                repetido = true;
             }
 
-            return IsInvalid;
+            return repetido;
         }
 
         // GET: Familias/Delete/5

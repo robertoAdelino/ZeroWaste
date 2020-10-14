@@ -55,13 +55,93 @@ namespace ZeroWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IDRestaurante,Nome,Telefone,Email,Morada")] Restaurante restaurante)
         {
-            if (ModelState.IsValid)
+            var email = restaurante.Email;
+            var morada = restaurante.Morada;
+            var telefone = restaurante.Telefone;
+
+
+            //Validar Email           
+            if (emailrepetidoCriar(email) == true)
             {
-                _context.Add(restaurante);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //Mensagem de erro se o email for inválido
+                ModelState.AddModelError("Email", "Este email já existe");
             }
+
+            //Validar morada           
+            if (moradarepetidaCriar(morada) == true)
+            {
+                //Mensagem de erro se a morada ja existir noutro registo
+                ModelState.AddModelError("Morada", "Esta morada já foi utilizada");
+            }
+            //Validar Contacto
+            if (contactorepetidoCriar(telefone))
+            {
+                //Mensagem de erro se o contacto ja existe
+                ModelState.AddModelError("Telefone", "Contacto já utilizado");
+            }
+
+            if (ModelState.IsValid)
+                if (!emailrepetidoCriar(email) || moradarepetidaCriar(morada) || contactorepetidoCriar(morada))
+                {
+                    _context.Add(restaurante);
+
+                    await _context.SaveChangesAsync();
+                    TempData["notice"] = "Registo inserido com sucesso!";
+                    return RedirectToAction(nameof(Index));
+                }
             return View(restaurante);
+        }
+
+        private bool emailrepetidoCriar(string email)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com o mesmo email
+            var restaurantes = from e in _context.Restaurante
+                           where e.Email.Contains(email)
+                           select e;
+
+            if (!restaurantes.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
+        }
+
+        private bool moradarepetidaCriar(string morada)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com a mesma morada
+            var restaurantes = from e in _context.Restaurante
+                               where e.Morada.Contains(morada)
+                           select e;
+
+            if (!restaurantes.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
+        }
+
+        private bool contactorepetidoCriar(string contacto)
+        {
+            bool repetido = false;
+
+
+            //Procura na BD se o contacto ja existe
+            var restaurantes = from e in _context.Restaurante
+                               where e.Telefone.Contains(contacto)
+                           select e;
+
+            if (!restaurantes.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
         }
 
         // GET: Restaurantes/Edit/5
@@ -87,17 +167,47 @@ namespace ZeroWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IDRestaurante,Nome,Telefone,Email,Morada")] Restaurante restaurante)
         {
+
+            var email = restaurante.Email;
+            var morada = restaurante.Morada;
+            var telefone = restaurante.Telefone;
+            var idRestaurante = restaurante.IDRestaurante;
+
             if (id != restaurante.IDRestaurante)
             {
                 return NotFound();
+            }
+
+            //Validar Email           
+            if (emailrepetidoEditar(email, idRestaurante) == true)
+            {
+                //Mensagem de erro se o email for repetido
+                ModelState.AddModelError("Email", "Este email já existe");
+            }
+
+            //Validar morada           
+            if (moradarepetidaEditar(morada, idRestaurante) == true)
+            {
+                //Mensagem de erro se a morada ja existir noutro registo
+                ModelState.AddModelError("Morada", "Esta morada já foi utilizada");
+            }
+            //Validar Contacto
+            if (contactorepetidoEditar(telefone, idRestaurante))
+            {
+                //Mensagem de erro se o contacto ja existe
+                ModelState.AddModelError("Telefone", "Contacto já utilizado");
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(restaurante);
-                    await _context.SaveChangesAsync();
+                    if (!emailrepetidoEditar(email, idRestaurante) || moradarepetidaEditar(morada, idRestaurante) || contactorepetidoEditar(morada, idRestaurante))
+                    {
+                        _context.Update(restaurante);
+                        await _context.SaveChangesAsync();
+                        TempData["successEdit"] = "Registo alterado com sucesso";
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -113,6 +223,55 @@ namespace ZeroWaste.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(restaurante);
+        }
+
+        private bool emailrepetidoEditar(string email, int idRestaurante)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com o mesmo email
+            var restaurantes = from f in _context.Restaurante
+                           where f.Email.Contains(email) && f.IDRestaurante != idRestaurante
+                           select f;
+
+            if (!restaurantes.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
+        }
+        private bool moradarepetidaEditar(string morada, int idRestaurante)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com a mesma morada
+            var restaurantes = from f in _context.Restaurante
+                               where f.Morada.Contains(morada) && f.IDRestaurante != idRestaurante
+                           select f;
+
+            if (!restaurantes.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
+        }
+        private bool contactorepetidoEditar(string contacto, int idRestaurante)
+        {
+            bool repetido = false;
+
+            //Procura na BD se existem restaurantes com o mesmo contacto
+            var restaurantes = from f in _context.Restaurante
+                               where f.Telefone.Contains(contacto) && f.IDRestaurante != idRestaurante
+                           select f;
+
+            if (!restaurantes.Count().Equals(0))
+            {
+                repetido = true;
+            }
+
+            return repetido;
         }
 
         // GET: Restaurantes/Delete/5

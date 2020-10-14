@@ -181,6 +181,7 @@ namespace ZeroWaste.Controllers
                 {
                     _context.Update(produtosSupermercado);
                     await _context.SaveChangesAsync();
+                    TempData["successEdit"] = "Registo alterado com sucesso";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
