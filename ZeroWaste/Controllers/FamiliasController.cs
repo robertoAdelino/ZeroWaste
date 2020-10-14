@@ -84,7 +84,7 @@ namespace ZeroWaste.Controllers
 
 
             if (ModelState.IsValid)
-                if (!emailrepetidoCriar(email) || moradarepetidaCriar(morada) || contactorepetidoCriar(morada))
+                if (!emailrepetidoCriar(email) || moradarepetidaCriar(morada) || contactorepetidoCriar(telefone))
                 {
                     _context.Add(familias);
 
@@ -207,7 +207,7 @@ namespace ZeroWaste.Controllers
             {
                 try
                 {
-                    if (!emailrepetidoEditar(email, idFamilia) || moradarepetidaEditar(morada, idFamilia) || contactorepetidoEditar(morada, idFamilia))
+                    if (!emailrepetidoEditar(email, idFamilia) || moradarepetidaEditar(morada, idFamilia) || contactorepetidoEditar(telefone, idFamilia))
                     {
                         _context.Update(familias);
                     await _context.SaveChangesAsync();

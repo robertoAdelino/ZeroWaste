@@ -81,7 +81,7 @@ namespace ZeroWaste.Controllers
             }
 
             if (ModelState.IsValid)
-                if (!emailrepetidoCriar(email) || moradarepetidaCriar(morada) || contactorepetidoCriar(morada))
+                if (!emailrepetidoCriar(email) || moradarepetidaCriar(morada) || contactorepetidoCriar(telefone))
                 {
                     _context.Add(supermercado);
 
@@ -97,7 +97,7 @@ namespace ZeroWaste.Controllers
         {
             bool repetido = false;
 
-            //Procura na BD se existem restaurantes com o mesmo email
+            //Procura na BD se existem supermercados com o mesmo email
             var supermercados = from e in _context.Supermercado
                                where e.Email.Contains(email)
                                select e;
@@ -114,7 +114,7 @@ namespace ZeroWaste.Controllers
         {
             bool repetido = false;
 
-            //Procura na BD se existem restaurantes com a mesma morada
+            //Procura na BD se existem supermercados com a mesma morada
             var supermercados = from e in _context.Supermercado
                                 where e.Morada.Contains(morada)
                                select e;
@@ -202,7 +202,7 @@ namespace ZeroWaste.Controllers
             {
                 try
                 {
-                    if (!emailrepetidoEditar(email, idSupermercado) || moradarepetidaEditar(morada, idSupermercado) || contactorepetidoEditar(morada, idSupermercado))
+                    if (!emailrepetidoEditar(email, idSupermercado) || moradarepetidaEditar(morada, idSupermercado) || contactorepetidoEditar(telefone, idSupermercado))
                     {
                         _context.Update(supermercado);
                         await _context.SaveChangesAsync();
